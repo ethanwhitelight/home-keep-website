@@ -27,7 +27,9 @@ Until both are configured, the site runs and the marketing pages work, but signu
 
 To apply the database schema once you have a Supabase project: install the [Supabase CLI](https://supabase.com/docs/guides/cli), run `supabase link`, then `supabase db push` to run everything in `supabase/migrations/`.
 
-To test Stripe locally once you have test-mode keys: run `stripe listen --forward-to localhost:3000/api/stripe/webhook` and use the printed signing secret as `STRIPE_WEBHOOK_SECRET`.
+To test Stripe locally once you have test-mode keys: run `stripe listen --forward-to localhost:3000/api/stripe/webhook` and use the printed signing secret as `STRIPE_WEBHOOK_SECRET`. In production, enable these events on the webhook endpoint in the Stripe dashboard: `checkout.session.completed`, `checkout.session.expired`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_failed`.
+
+Email sending isn't wired to a real provider yet — see `src/lib/email/hooks.ts` for the stubbed functions and their call sites (`TODO(confirm)` marks where Resend or similar should be plugged in).
 
 ## Project structure
 
@@ -56,5 +58,5 @@ Built milestone-by-milestone, committing after each:
 - [x] M5 — Supabase auth
 - [x] M6 — Stripe Checkout + webhook
 - [x] M7 — member hub + service requests
-- [ ] M8 — lead magnet + email hooks
+- [x] M8 — lead magnet + email hooks
 - [ ] M9 — polish (a11y, SEO, responsive QA)

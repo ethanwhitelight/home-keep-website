@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe/client";
 import { createServiceRoleClient } from "@/lib/supabase/service-role";
+import { emailHooks } from "@/lib/email/hooks";
 import type { SubscriptionStatus } from "@/types/member";
 
 function mapStripeStatus(status: Stripe.Subscription.Status): SubscriptionStatus {
@@ -75,7 +76,26 @@ export async function POST(request: NextRequest) {
             subscription_status: "active",
           })
           .eq("id", memberId);
-        // TODO(M8): trigger the "new-member onboarding" email hook here.
+
+        const email = session.customer_details?.email;
+        if (email && tier) {
+          await emailHooks.notifyNewMember({ email, tier });
+        }
+      }
+      break;
+    }
+
+    case "checkout.session.expired": {
+      const session = event.data.object as Stripe.Checkout.Session;
+      const email = session.customer_details?.email;
+      if (email) {
+        await supabase.from("leads").insert({
+          email,
+          source: "signup-abandoned",
+          tier: session.metadata?.tier ?? null,
+          member_id: session.metadata?.member_id ?? null,
+        });
+        await emailHooks.notifyNewLead({ email, source: "signup-abandoned" });
       }
       break;
     }
@@ -107,7 +127,9 @@ export async function POST(request: NextRequest) {
           .update({ subscription_status: "past_due" })
           .eq("stripe_subscription_id", subscriptionId);
       }
-      // TODO(M8): trigger a payment-failure nurture email hook here.
+      if (invoice.customer_email) {
+        await emailHooks.notifyPaymentFailed({ email: invoice.customer_email });
+      }
       break;
     }
 

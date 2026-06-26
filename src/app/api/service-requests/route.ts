@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { emailHooks } from "@/lib/email/hooks";
 import { getServicesForTier } from "@/data/tiers";
 import { TIER_ORDER, type Tier } from "@/types/tiers";
 
@@ -50,7 +51,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // TODO(M8): trigger the "new-lead nurture" email hook here.
+  if (user.email) {
+    await emailHooks.notifyNewLead({ email: user.email, source: "service-request" });
+  }
 
   return NextResponse.json({ success: true });
 }
