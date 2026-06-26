@@ -33,14 +33,32 @@ export default function SignupForm({ tier }: { tier?: string }) {
       return;
     }
 
-    if (data.session) {
-      // TODO(M6): redirect to /api/checkout for the selected tier instead
-      // of straight to the dashboard, once Stripe Checkout is wired up.
+    if (!data.session) {
+      setCheckEmail(true);
+      return;
+    }
+
+    if (!tier) {
       router.push("/dashboard");
       router.refresh();
-    } else {
-      setCheckEmail(true);
+      return;
     }
+
+    setPending(true);
+    const checkoutResponse = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tier }),
+    });
+    const checkoutData = await checkoutResponse.json();
+    setPending(false);
+
+    if (!checkoutResponse.ok || !checkoutData.url) {
+      setError(checkoutData.error ?? "Could not start checkout. Please try again.");
+      return;
+    }
+
+    window.location.href = checkoutData.url;
   }
 
   if (checkEmail) {

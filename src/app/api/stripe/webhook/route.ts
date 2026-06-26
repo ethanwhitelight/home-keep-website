@@ -1,0 +1,119 @@
+import { NextRequest, NextResponse } from "next/server";
+import type Stripe from "stripe";
+import { getStripe } from "@/lib/stripe/client";
+import { createServiceRoleClient } from "@/lib/supabase/service-role";
+import type { SubscriptionStatus } from "@/types/member";
+
+function mapStripeStatus(status: Stripe.Subscription.Status): SubscriptionStatus {
+  switch (status) {
+    case "active":
+    case "trialing":
+      return "active";
+    case "past_due":
+    case "unpaid":
+      return "past_due";
+    case "canceled":
+      return "canceled";
+    case "incomplete":
+    case "incomplete_expired":
+      return "incomplete";
+    default:
+      return "none";
+  }
+}
+
+function subscriptionIdFromInvoice(invoice: Stripe.Invoice): string | null {
+  const subscription = invoice.parent?.subscription_details?.subscription;
+  if (!subscription) return null;
+  return typeof subscription === "string" ? subscription : subscription.id;
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.text();
+  const signature = request.headers.get("stripe-signature");
+
+  if (!signature) {
+    return NextResponse.json({ error: "Missing signature" }, { status: 400 });
+  }
+
+  const stripe = getStripe();
+  let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET!,
+    );
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { error: `Webhook signature verification failed: ${message}` },
+      { status: 400 },
+    );
+  }
+
+  const supabase = createServiceRoleClient();
+
+  switch (event.type) {
+    case "checkout.session.completed": {
+      const session = event.data.object as Stripe.Checkout.Session;
+      const memberId = session.metadata?.member_id;
+      const tier = session.metadata?.tier;
+      if (memberId) {
+        await supabase
+          .from("profiles")
+          .update({
+            stripe_customer_id:
+              typeof session.customer === "string"
+                ? session.customer
+                : session.customer?.id,
+            stripe_subscription_id:
+              typeof session.subscription === "string"
+                ? session.subscription
+                : session.subscription?.id,
+            tier,
+            subscription_status: "active",
+          })
+          .eq("id", memberId);
+        // TODO(M8): trigger the "new-member onboarding" email hook here.
+      }
+      break;
+    }
+
+    case "customer.subscription.updated": {
+      const subscription = event.data.object as Stripe.Subscription;
+      await supabase
+        .from("profiles")
+        .update({ subscription_status: mapStripeStatus(subscription.status) })
+        .eq("stripe_subscription_id", subscription.id);
+      break;
+    }
+
+    case "customer.subscription.deleted": {
+      const subscription = event.data.object as Stripe.Subscription;
+      await supabase
+        .from("profiles")
+        .update({ subscription_status: "canceled" })
+        .eq("stripe_subscription_id", subscription.id);
+      break;
+    }
+
+    case "invoice.payment_failed": {
+      const invoice = event.data.object as Stripe.Invoice;
+      const subscriptionId = subscriptionIdFromInvoice(invoice);
+      if (subscriptionId) {
+        await supabase
+          .from("profiles")
+          .update({ subscription_status: "past_due" })
+          .eq("stripe_subscription_id", subscriptionId);
+      }
+      // TODO(M8): trigger a payment-failure nurture email hook here.
+      break;
+    }
+
+    default:
+      break;
+  }
+
+  return NextResponse.json({ received: true });
+}
