@@ -5,7 +5,7 @@ import type { Contractor } from "@/types/contractor";
 export default function ContractorCard({ contractor }: { contractor: Contractor }) {
   return (
     <div className="flex flex-col rounded-xl border border-primary-100 bg-white p-5">
-      <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-primary-50 text-xs font-semibold text-primary-400">
+      <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-primary-50 text-xs font-semibold text-primary-600">
         Logo
       </div>
       <h3 className="mt-4 text-base font-semibold text-primary-950">

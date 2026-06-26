@@ -23,6 +23,7 @@ export default function ContractorsPage() {
         </p>
       </div>
       <div className="mt-12">
+        <h2 className="sr-only">Our vetted contractors</h2>
         <ContractorGrid contractors={contractors} />
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function Hero() {
         </div>
 
         <div className="rounded-2xl border border-primary-100 bg-white p-8 shadow-sm">
-          <div className="flex h-48 items-center justify-center rounded-xl bg-primary-50 text-primary-300">
+          <div className="flex h-48 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
             <span className="text-sm">Hero image placeholder</span>
           </div>
           <div className="mt-6 text-center">

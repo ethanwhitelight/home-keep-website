@@ -56,7 +56,7 @@ export default function HowItWorks() {
                   {step.icon}
                 </svg>
               </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-accent-600">
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-primary-700">
                 Step {index + 1}
               </p>
               <h3 className="mt-1 text-lg font-semibold text-primary-950">

@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import SignupForm from "@/components/auth/SignupForm";
+
+export const metadata: Metadata = {
+  title: "Create Your Account",
+};
 
 export default async function SignupPage({
   searchParams,

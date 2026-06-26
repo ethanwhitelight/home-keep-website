@@ -43,7 +43,7 @@ export default function Footer() {
             </p>
             <p className="mt-4 text-sm text-primary-300">
               hello@homekeep.com
-              <span className="block text-xs text-primary-400">
+              <span className="block text-xs text-primary-300">
                 TODO(confirm): real contact details
               </span>
             </p>
@@ -51,7 +51,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-white">{col.title}</h3>
+              <p className="text-sm font-semibold text-white">{col.title}</p>
               <ul className="mt-3 space-y-2">
                 {col.links.map((link) => (
                   <li key={link.href}>
@@ -69,14 +69,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-800 pt-6 sm:flex-row">
-          <p className="text-xs text-primary-400">
+          <p className="text-xs text-primary-300">
             &copy; {new Date().getFullYear()} Home Keep. All rights reserved.
           </p>
           <div className="flex gap-4">
             {socialLinks.map((label) => (
               <span
                 key={label}
-                className="text-xs text-primary-400"
+                className="text-xs text-primary-300"
                 title="TODO(confirm): real social links"
               >
                 {label}

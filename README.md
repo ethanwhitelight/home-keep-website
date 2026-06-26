@@ -59,4 +59,10 @@ Built milestone-by-milestone, committing after each:
 - [x] M6 — Stripe Checkout + webhook
 - [x] M7 — member hub + service requests
 - [x] M8 — lead magnet + email hooks
-- [ ] M9 — polish (a11y, SEO, responsive QA)
+- [x] M9 — polish (a11y, SEO, responsive QA)
+
+## Verification
+
+Lighthouse (production build, `npm run build && npm run start`) on `/`, `/plans`, `/contractors`, `/cheat-sheet`: performance 98, accessibility 100, best practices 100, SEO 100 — all above the 90+ target.
+
+Responsive behavior at 360/768/1280px was verified by code review (every layout uses Tailwind's `sm:`/`lg:` breakpoints, the Navbar has a dedicated mobile menu, and the plans table scrolls horizontally on narrow screens) and Lighthouse's mobile-viewport audit, not by visually inspecting a live browser — this environment has no browser/screenshot tool available. Recommend a manual click-through in an actual browser at those widths before launch.
