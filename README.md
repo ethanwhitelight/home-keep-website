@@ -25,6 +25,8 @@ See `.env.example` for the full list. You'll need:
 
 Until both are configured, the site runs and the marketing pages work, but signup/login and Checkout will not function end-to-end.
 
+To apply the database schema once you have a Supabase project: install the [Supabase CLI](https://supabase.com/docs/guides/cli), run `supabase link`, then `supabase db push` to run everything in `supabase/migrations/`.
+
 ## Project structure
 
 ```
@@ -46,10 +48,10 @@ Pricing, the tier/service ladder, contractor listings, and FAQ copy all live in 
 Built milestone-by-milestone, committing after each:
 
 - [x] M1 — scaffold, layout, nav, footer, stub routes
-- [ ] M2 — homepage sections
-- [ ] M3 — tier/service data model + plan comparison
-- [ ] M4 — contractor directory
-- [ ] M5 — Supabase auth
+- [x] M2 — homepage sections
+- [x] M3 — tier/service data model + plan comparison
+- [x] M4 — contractor directory
+- [x] M5 — Supabase auth
 - [ ] M6 — Stripe Checkout + webhook
 - [ ] M7 — member hub + service requests
 - [ ] M8 — lead magnet + email hooks
