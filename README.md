@@ -1,0 +1,56 @@
+# Home Keep
+
+Marketing site + member web app for Home Keep, a home-services membership club for Utah County, Utah. Members pay an annual fee for member-only pricing and priority access to vetted local contractors.
+
+## Stack
+
+Next.js (App Router) + TypeScript, Tailwind CSS, Supabase (Postgres + Auth), Stripe Checkout + Billing, Vercel.
+
+## Setup
+
+```bash
+npm install
+cp .env.example .env.local   # then fill in real values, see below
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Environment variables
+
+See `.env.example` for the full list. You'll need:
+
+- A **Supabase** project (URL, anon key, service role key) — required for auth, member profiles, leads, and the dashboard. Not yet wired to a real project; see `supabase/migrations/` for the schema to apply.
+- A **Stripe** account in test mode (secret key, webhook signing secret, one Price ID per membership tier) — required for Checkout and subscription sync.
+
+Until both are configured, the site runs and the marketing pages work, but signup/login and Checkout will not function end-to-end.
+
+## Project structure
+
+```
+src/app/(marketing)/   public site: home, plans, contractors, cheat-sheet, app, terms, privacy
+src/app/(auth)/        signup, login
+src/app/dashboard/     member hub (auth-gated)
+src/app/api/           Stripe checkout/webhook, lead capture routes
+src/components/        ui/ (primitives), layout/ (nav, footer), and per-feature folders
+src/data/              static, hand-edited content: tier/service ladder, plans, contractors, FAQ
+src/lib/               Supabase + Stripe clients, email hook stubs
+src/types/             shared TypeScript types
+supabase/migrations/   SQL schema for profiles, leads, savings_history, service_requests
+```
+
+Pricing, the tier/service ladder, contractor listings, and FAQ copy all live in `src/data/` and are meant to be edited directly — look for `TODO(confirm)` comments marking values that are placeholders pending business sign-off.
+
+## Status
+
+Built milestone-by-milestone, committing after each:
+
+- [x] M1 — scaffold, layout, nav, footer, stub routes
+- [ ] M2 — homepage sections
+- [ ] M3 — tier/service data model + plan comparison
+- [ ] M4 — contractor directory
+- [ ] M5 — Supabase auth
+- [ ] M6 — Stripe Checkout + webhook
+- [ ] M7 — member hub + service requests
+- [ ] M8 — lead magnet + email hooks
+- [ ] M9 — polish (a11y, SEO, responsive QA)
