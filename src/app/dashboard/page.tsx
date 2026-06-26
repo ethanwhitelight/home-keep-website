@@ -1,9 +1,11 @@
 import { createClient } from "@/lib/supabase/server";
 import CheckoutButton from "@/components/dashboard/CheckoutButton";
+import SavingsCounter from "@/components/dashboard/SavingsCounter";
+import RecommendedTasks from "@/components/dashboard/RecommendedTasks";
+import TierBenefitsPanel from "@/components/dashboard/TierBenefitsPanel";
+import Button from "@/components/ui/Button";
 import { TIER_ORDER, type Tier } from "@/types/tiers";
 
-// TODO(M7): build out the full member hub (savings counter, recommended
-// tasks, tier benefits panel, service request CTA) on top of this.
 export default async function DashboardPage() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
@@ -32,7 +34,7 @@ export default async function DashboardPage() {
           : "No active membership yet."}
       </p>
 
-      {!hasActiveMembership && (
+      {!hasActiveMembership ? (
         <div className="mt-6 rounded-xl border border-accent-200 bg-accent-50 p-5">
           <p className="text-sm text-primary-800">
             Your account is set up, but checkout hasn&apos;t been completed
@@ -40,6 +42,19 @@ export default async function DashboardPage() {
           </p>
           <div className="mt-3">
             <CheckoutButton tier={intendedTier} />
+          </div>
+        </div>
+      ) : (
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="space-y-6 lg:col-span-1">
+            <SavingsCounter memberId={data.user!.id} />
+            <Button href="/dashboard/request" className="w-full">
+              Request a quote
+            </Button>
+          </div>
+          <div className="space-y-6 lg:col-span-2">
+            <RecommendedTasks tier={profile!.tier as Tier} />
+            <TierBenefitsPanel tier={profile!.tier as Tier} />
           </div>
         </div>
       )}

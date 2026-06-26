@@ -55,6 +55,6 @@ Built milestone-by-milestone, committing after each:
 - [x] M4 — contractor directory
 - [x] M5 — Supabase auth
 - [x] M6 — Stripe Checkout + webhook
-- [ ] M7 — member hub + service requests
+- [x] M7 — member hub + service requests
 - [ ] M8 — lead magnet + email hooks
 - [ ] M9 — polish (a11y, SEO, responsive QA)
