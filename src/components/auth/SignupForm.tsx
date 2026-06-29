@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { getPaymentLinkUrl } from "@/lib/stripe/paymentLinks";
+import { TIER_ORDER, type Tier } from "@/types/tiers";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 
@@ -38,27 +40,16 @@ export default function SignupForm({ tier }: { tier?: string }) {
       return;
     }
 
-    if (!tier) {
+    if (!tier || !TIER_ORDER.includes(tier as Tier)) {
       router.push("/dashboard");
       router.refresh();
       return;
     }
 
-    setPending(true);
-    const checkoutResponse = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tier }),
+    window.location.href = getPaymentLinkUrl(tier as Tier, {
+      id: data.session.user.id,
+      email: data.session.user.email,
     });
-    const checkoutData = await checkoutResponse.json();
-    setPending(false);
-
-    if (!checkoutResponse.ok || !checkoutData.url) {
-      setError(checkoutData.error ?? "Could not start checkout. Please try again.");
-      return;
-    }
-
-    window.location.href = checkoutData.url;
   }
 
   if (checkEmail) {

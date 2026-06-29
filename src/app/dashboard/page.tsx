@@ -41,7 +41,11 @@ export default async function DashboardPage() {
             yet.
           </p>
           <div className="mt-3">
-            <CheckoutButton tier={intendedTier} />
+            <CheckoutButton
+              tier={intendedTier}
+              memberId={data.user!.id}
+              email={data.user!.email}
+            />
           </div>
         </div>
       ) : (

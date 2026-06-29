@@ -29,6 +29,17 @@ function subscriptionIdFromInvoice(invoice: Stripe.Invoice): string | null {
   return typeof subscription === "string" ? subscription : subscription.id;
 }
 
+// Payment Links don't support custom session metadata, so the signup/checkout
+// flow packs `${memberId}:${tier}` into client_reference_id instead.
+function parseClientReferenceId(
+  clientReferenceId: string | null,
+): { memberId: string; tier: string } | null {
+  if (!clientReferenceId) return null;
+  const [memberId, tier] = clientReferenceId.split(":");
+  if (!memberId || !tier) return null;
+  return { memberId, tier };
+}
+
 export async function POST(request: NextRequest) {
   const body = await request.text();
   const signature = request.headers.get("stripe-signature");
@@ -58,8 +69,9 @@ export async function POST(request: NextRequest) {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
-      const memberId = session.metadata?.member_id;
-      const tier = session.metadata?.tier;
+      const parsed = parseClientReferenceId(session.client_reference_id);
+      const memberId = parsed?.memberId;
+      const tier = parsed?.tier;
       if (memberId) {
         await supabase
           .from("profiles")
@@ -88,12 +100,13 @@ export async function POST(request: NextRequest) {
     case "checkout.session.expired": {
       const session = event.data.object as Stripe.Checkout.Session;
       const email = session.customer_details?.email;
+      const parsed = parseClientReferenceId(session.client_reference_id);
       if (email) {
         await supabase.from("leads").insert({
           email,
           source: "signup-abandoned",
-          tier: session.metadata?.tier ?? null,
-          member_id: session.metadata?.member_id ?? null,
+          tier: parsed?.tier ?? null,
+          member_id: parsed?.memberId ?? null,
         });
         await emailHooks.notifyNewLead({ email, source: "signup-abandoned" });
       }
