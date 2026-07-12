@@ -8,15 +8,15 @@ export const metadata: Metadata = {
 const sections = [
   {
     heading: "Membership",
-    body: "Home Keep memberships are sold on an annual basis and renew automatically unless canceled. TODO(confirm): renewal, refund, and cancellation terms pending legal review.",
+    body: "Homekeep memberships are sold on an annual basis and renew automatically unless canceled. TODO(confirm): renewal, refund, and cancellation terms pending legal review.",
   },
   {
     heading: "Member pricing",
-    body: "Member rates are negotiated with vetted contractors and apply only to services booked as a Home Keep member in good standing. TODO(confirm): exact terms of the member-pricing agreement with contractors.",
+    body: "Member rates are negotiated with vetted contractors and apply only to services booked as a Homekeep member in good standing. TODO(confirm): exact terms of the member-pricing agreement with contractors.",
   },
   {
     heading: "Contractor relationship",
-    body: "Home Keep vets contractors but does not employ them. Service agreements and payment for completed work are between the member and the contractor. TODO(confirm): liability and dispute-resolution language pending legal review.",
+    body: "Homekeep vets contractors but does not employ them. Service agreements and payment for completed work are between the member and the contractor. TODO(confirm): liability and dispute-resolution language pending legal review.",
   },
   {
     heading: "Guarantee",

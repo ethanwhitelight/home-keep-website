@@ -25,7 +25,7 @@ export default function TierBenefitsPanel({ tier }: { tier: Tier }) {
           See my benefits
         </Button>
         {hasConciergeAccess && (
-          <Button href="mailto:concierge@homekeep.com" variant="ghost" size="md">
+          <Button href="mailto:concierge@homekeepco.com" variant="ghost" size="md">
             Talk to my concierge
           </Button>
         )}

@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Get the App",
   description:
-    "The Home Keep app is coming soon — manage your membership, savings, and service requests on the go.",
+    "The Homekeep app is coming soon — manage your membership, savings, and service requests on the go.",
 };
 
 const features = [
@@ -39,7 +39,7 @@ export default function AppPage() {
         Coming soon
       </p>
       <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-primary-950 sm:text-5xl">
-        Get the Home Keep app
+        Get the Homekeep app
       </h1>
       <p className="mt-4 text-lg text-primary-700">
         The mobile app is on the way. For now, your Member Hub works great
@@ -59,16 +59,10 @@ export default function AppPage() {
       </ul>
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <span
-          className="flex h-12 w-40 items-center justify-center rounded-xl bg-primary-950 text-xs font-semibold text-white/80"
-          title="TODO(confirm): real App Store badge + link"
-        >
+        <span className="flex h-12 w-40 items-center justify-center rounded-xl bg-primary-950 text-xs font-semibold text-white/80">
           App Store — soon
         </span>
-        <span
-          className="flex h-12 w-40 items-center justify-center rounded-xl bg-primary-950 text-xs font-semibold text-white/80"
-          title="TODO(confirm): real Google Play badge + link"
-        >
+        <span className="flex h-12 w-40 items-center justify-center rounded-xl bg-primary-950 text-xs font-semibold text-white/80">
           Google Play — soon
         </span>
       </div>

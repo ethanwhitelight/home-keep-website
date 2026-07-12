@@ -11,7 +11,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "I used to dread calling around for a plumber. Now I message Home Keep and someone vetted shows up at member pricing. Easily paid for itself the first month.",
+      "I used to dread calling around for a plumber. Now I message Homekeep and someone vetted shows up at member pricing. Easily paid for itself the first month.",
     name: "Sarah M.",
     location: "Provo, UT",
     tier: "Gold member",

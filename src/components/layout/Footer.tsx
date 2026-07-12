@@ -3,7 +3,7 @@ import Logo from "@/components/ui/Logo";
 
 const columns = [
   {
-    title: "Home Keep",
+    title: "Homekeep",
     links: [
       { href: "/#how-it-works", label: "How it works" },
       { href: "/plans", label: "Plans" },
@@ -28,8 +28,6 @@ const columns = [
   },
 ];
 
-const socialLinks = ["Facebook", "Instagram", "X"];
-
 export default function Footer() {
   return (
     <footer className="border-t border-primary-100 bg-primary-950 text-primary-100">
@@ -38,14 +36,13 @@ export default function Footer() {
           <div>
             <Logo className="text-white [&_span]:text-white" />
             <p className="mt-3 max-w-xs text-sm text-primary-300">
-              Member-only pricing and vetted local pros for Utah County
-              homeowners.
+              The membership that saves Utah County homeowners more than the fee
+              — and handles the hassle of finding trusted pros.
             </p>
             <p className="mt-4 text-sm text-primary-300">
-              hello@homekeep.com
-              <span className="block text-xs text-primary-300">
-                TODO(confirm): real contact details
-              </span>
+              <a href="mailto:hello@homekeepco.com" className="hover:text-white">
+                hello@homekeepco.com
+              </a>
             </p>
           </div>
 
@@ -70,19 +67,9 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-800 pt-6 sm:flex-row">
           <p className="text-xs text-primary-300">
-            &copy; {new Date().getFullYear()} Home Keep. All rights reserved.
+            &copy; {new Date().getFullYear()} Homekeep. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            {socialLinks.map((label) => (
-              <span
-                key={label}
-                className="text-xs text-primary-300"
-                title="TODO(confirm): real social links"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
+          <p className="text-xs text-primary-300">Serving Utah County, Utah</p>
         </div>
       </div>
     </footer>

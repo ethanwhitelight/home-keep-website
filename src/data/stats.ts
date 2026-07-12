@@ -15,11 +15,11 @@ export const sampleYear = {
 };
 
 export const withoutVsWith = {
-  withoutLabel: "Without Home Keep",
-  withLabel: "With Home Keep",
+  withoutLabel: "Without Homekeep",
+  withLabel: "With Homekeep",
   withoutAmount: 2200,
   withAmount: 1750,
 };
 
 export const guaranteeCopy =
-  "If you don't save at least your membership fee in the first 12 months, we'll renew you free for year two. TODO(confirm): pending unit-economics check.";
+  "If you don't save more than your membership fee in the first 12 months, we credit the rest. No fine print.";

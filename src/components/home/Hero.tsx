@@ -11,7 +11,7 @@ export default function Hero() {
             Turn random repair bills into predictable member savings.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-primary-700">
-            Join Home Keep and get member-only pricing and priority access to
+            Join Homekeep and get member-only pricing and priority access to
             trusted Utah County home pros.
           </p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">

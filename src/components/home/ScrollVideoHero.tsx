@@ -144,7 +144,7 @@ export default function ScrollVideoHero() {
               Stop paying full price for every repair.
             </h1>
             <p className="mt-5 max-w-md text-lg text-primary-700">
-              Home Keep members get vetted Utah County pros at member-only
+              Homekeep members get vetted Utah County pros at member-only
               pricing — before the bill surprises you.
             </p>
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">

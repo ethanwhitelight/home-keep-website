@@ -19,8 +19,11 @@ export default function WhyJoinNow() {
             services.
           </p>
           <p className="mt-3 text-lg text-primary-700">
-            Members save {sampleYear.memberSavingsPercent}%+ and get problems
-            handled faster.
+            On <span className="font-semibold text-primary-900">Gold</span> —
+            our most popular plan — members save{" "}
+            {sampleYear.memberSavingsPercent}%+ across those jobs and get
+            problems handled faster, so the $199 fee usually pays for itself in
+            the first couple of bookings.
           </p>
         </div>
         <SavingsBarChart />

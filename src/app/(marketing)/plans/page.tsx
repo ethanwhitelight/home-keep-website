@@ -5,7 +5,7 @@ import PlanComparisonTable from "@/components/plans/PlanComparisonTable";
 export const metadata: Metadata = {
   title: "Membership Plans",
   description:
-    "Compare Home Keep's Silver, Gold, and Platinum membership tiers and find the right level of vetted, member-priced home services.",
+    "Compare Homekeep's Silver, Gold, and Platinum membership tiers and find the right level of vetted, member-priced home services.",
 };
 
 export default function PlansPage() {

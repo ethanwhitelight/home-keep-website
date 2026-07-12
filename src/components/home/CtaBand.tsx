@@ -8,7 +8,7 @@ export default function CtaBand() {
           Ready to stop overpaying?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-primary-900/80">
-          Join Home Keep and get vetted Utah County pros at member pricing —
+          Join Homekeep and get vetted Utah County pros at member pricing —
           before the next repair bill surprises you.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

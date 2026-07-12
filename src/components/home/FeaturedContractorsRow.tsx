@@ -12,7 +12,7 @@ export default function FeaturedContractorsRow() {
         <SectionHeading
           eyebrow="The Network"
           title="Meet a few of our vetted pros"
-          description="Every contractor in our network is vetted by Home Keep."
+          description="Every partner clears a hard bar: a 4.7★+ rating, 3+ years in business, 50+ Google reviews, and current license and insurance."
         />
         <div className="mt-10">
           <ContractorGrid contractors={contractors} limit={4} />

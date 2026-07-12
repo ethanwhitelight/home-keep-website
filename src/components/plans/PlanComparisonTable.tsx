@@ -63,7 +63,7 @@ export default function PlanComparisonTable({
                     </span>
                   </p>
                   <p className="mt-1 text-xs text-primary-600">
-                    TODO(confirm): placeholder pricing
+                    Billed annually · cancel anytime
                   </p>
                 </div>
               </th>

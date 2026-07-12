@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 // TODO(confirm): replace with the real production domain once decided.
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://homekeep.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://homekeepco.com";
 
 const publicRoutes = [
   "/",
