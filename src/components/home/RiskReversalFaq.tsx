@@ -11,7 +11,10 @@ export default function RiskReversalFaq() {
           <p className="mt-2 text-sm text-primary-700">{guaranteeCopy}</p>
         </div>
 
-        <h2 className="mt-12 text-center text-2xl font-bold text-primary-950">
+        <p className="mt-12 text-center text-xs font-semibold uppercase tracking-[0.14em] text-accent-600">
+          Questions
+        </p>
+        <h2 className="mt-2 text-center text-2xl font-bold text-primary-950">
           Frequently asked questions
         </h2>
         <div className="mt-6">

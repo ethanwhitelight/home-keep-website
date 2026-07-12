@@ -1,10 +1,10 @@
 import type { Tier } from "@/types/tiers";
 
-// TODO(confirm): Stripe TEST mode Payment Links — swap for live-mode links before launch.
+// Stripe LIVE mode Payment Links — these charge real cards.
 const TIER_PAYMENT_LINKS: Record<Tier, string> = {
-  silver: "https://buy.stripe.com/test_bJe00l78hcCv3RTfWv2go02",
-  gold: "https://buy.stripe.com/test_28E00l9gpdGz8895hR2go01",
-  platinum: "https://buy.stripe.com/test_fZuaEZ0JTcCv4VX9y72go00",
+  silver: "https://buy.stripe.com/8x2dRbgJt09EcKK74o48001",
+  gold: "https://buy.stripe.com/14AbJ3ctd6y29yy3Sc48002",
+  platinum: "https://buy.stripe.com/5kQ9AV8cX1dIbGG4Wg48000",
 };
 
 /**

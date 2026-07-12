@@ -6,7 +6,7 @@ type Size = "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-accent-500 text-primary-950 hover:bg-accent-400 focus-visible:outline-accent-600",
+    "bg-accent-600 text-white hover:bg-accent-700 focus-visible:outline-accent-700",
   secondary:
     "bg-primary-800 text-white hover:bg-primary-700 focus-visible:outline-primary-900",
   ghost:

@@ -1,6 +1,13 @@
 // TODO(confirm): illustrative marketing figures pending real pilot data.
 export const heroSavingsHeadline = "$1,000+";
 
+// TODO(confirm): headline stats for the hero stat bar pending real pilot data.
+export const heroStats: { value: string; label: string }[] = [
+  { value: heroSavingsHeadline, label: "avg. member savings/yr" },
+  { value: "48 hr", label: "average response time" },
+  { value: "100%", label: "vetted contractors" },
+];
+
 export const sampleYear = {
   typicalSpendLow: 1500,
   typicalSpendHigh: 3000,

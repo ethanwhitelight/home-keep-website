@@ -20,7 +20,7 @@ export default function Accordion({ items }: { items: AccordionItem[] }) {
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-primary-50"
             >
               <span className="font-semibold text-primary-950">
                 {item.question}
@@ -33,18 +33,24 @@ export default function Accordion({ items }: { items: AccordionItem[] }) {
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
-                className={`shrink-0 text-primary-500 transition-transform ${
+                className={`shrink-0 text-primary-500 transition-transform duration-300 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            {isOpen && (
-              <p className="px-5 pb-4 text-sm leading-relaxed text-primary-700">
-                {item.answer}
-              </p>
-            )}
+            <div
+              className={`grid transition-all duration-300 ease-out ${
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="px-5 pb-4 text-sm leading-relaxed text-primary-700">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
           </div>
         );
       })}

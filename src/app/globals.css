@@ -1,36 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  /* Sky & Sand: soft off-white canvas, teal-blue primary, warm sand accent — light & inviting */
+  --background: #f4f7f7;
+  --foreground: #173033;
 
-  /* Brand: deep navy primary (trust), warm amber accent (CTAs) */
-  --color-primary-50: #eef3f8;
-  --color-primary-100: #d7e3ee;
-  --color-primary-200: #b0c7dd;
-  --color-primary-300: #80a5c8;
-  --color-primary-400: #4f80ad;
-  --color-primary-500: #2f6090;
-  --color-primary-600: #1f4870;
-  --color-primary-700: #18375a;
-  --color-primary-800: #122a44;
-  --color-primary-900: #0c1d30;
-  --color-primary-950: #071322;
+  /* Primary: friendly teal-blue (trust, calm, fresh) */
+  --color-primary-50: #eef4f4;
+  --color-primary-100: #d2e5e5;
+  --color-primary-200: #abcfd0;
+  --color-primary-300: #7bb0b2;
+  --color-primary-400: #519599;
+  --color-primary-500: #3a7b80;
+  --color-primary-600: #2e6266;
+  --color-primary-700: #274e52;
+  --color-primary-800: #1f4043;
+  --color-primary-900: #173033;
+  --color-primary-950: #0f2224;
 
-  --color-accent-50: #fffbeb;
-  --color-accent-100: #fef3c7;
-  --color-accent-200: #fde68a;
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
-  --color-accent-700: #b45309;
+  /* Accent: warm sand / amber (CTAs, highlights) */
+  --color-accent-50: #fcf4ea;
+  --color-accent-100: #f7e1c4;
+  --color-accent-200: #f1cb98;
+  --color-accent-300: #eaaf6b;
+  --color-accent-400: #e59b4e;
+  --color-accent-500: #e08a3c;
+  --color-accent-600: #b86e27;
+  --color-accent-700: #90551e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
 
   --color-primary-50: var(--color-primary-50);
   --color-primary-100: var(--color-primary-100);
@@ -58,4 +61,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), var(--font-sans), sans-serif;
 }

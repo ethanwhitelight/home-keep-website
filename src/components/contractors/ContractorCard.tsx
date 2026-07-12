@@ -1,12 +1,40 @@
-import Badge from "@/components/ui/Badge";
 import StarRating from "@/components/ui/StarRating";
 import type { Contractor } from "@/types/contractor";
 
+function initials(name: string) {
+  return name
+    .split(" ")
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+}
+
 export default function ContractorCard({ contractor }: { contractor: Contractor }) {
   return (
-    <div className="flex flex-col rounded-xl border border-primary-100 bg-white p-5">
-      <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-primary-50 text-xs font-semibold text-primary-600">
-        Logo
+    <div className="flex flex-col rounded-xl border border-primary-100 bg-white p-5 transition-shadow hover:border-primary-200 hover:shadow-md">
+      <div className="flex items-start justify-between">
+        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary-800 text-lg font-bold text-accent-200">
+          {initials(contractor.name)}
+        </div>
+        {contractor.vetted && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent-100 px-2.5 py-1 text-xs font-semibold text-accent-700">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m5 13 4 4L19 7" />
+            </svg>
+            Vetted
+          </span>
+        )}
       </div>
       <h3 className="mt-4 text-base font-semibold text-primary-950">
         {contractor.name}
@@ -28,11 +56,6 @@ export default function ContractorCard({ contractor }: { contractor: Contractor 
           </span>
         ))}
       </div>
-      {contractor.vetted && (
-        <Badge className="mt-4 self-start bg-accent-100 text-accent-700">
-          Vetted by Home Keep
-        </Badge>
-      )}
     </div>
   );
 }

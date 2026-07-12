@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import { getServicesByCategory } from "@/data/tiers";
 import { PLANS } from "@/data/plans";
 import { formatCentsAsDollars } from "@/lib/utils/formatCurrency";
@@ -50,9 +49,9 @@ export default function PlanComparisonTable({
                   }`}
                 >
                   {plan.mostPopular && (
-                    <Badge className="mb-2 bg-accent-100 text-accent-700">
+                    <span className="mb-2 inline-flex items-center rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-primary-950">
                       Most Popular
-                    </Badge>
+                    </span>
                   )}
                   <p className="text-lg font-bold text-primary-950">
                     {plan.displayName}
