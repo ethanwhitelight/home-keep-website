@@ -141,21 +141,39 @@ export default function ScrollVideoHero() {
               Utah County Home Services
             </p>
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight text-primary-900 sm:text-5xl lg:text-6xl">
-              Stop paying full price for every repair.
+              Save more on home services than your membership costs.
             </h1>
             <p className="mt-5 max-w-md text-lg text-primary-700">
-              Homekeep members get vetted Utah County pros at member-only
-              pricing — before the bill surprises you.
+              Utah County homeowners get member-only pricing with pre-vetted
+              local pros — and more help at every tier.
+            </p>
+            <p className="mt-5 flex max-w-md items-start gap-2 rounded-xl border border-primary-200 bg-white/70 px-4 py-3 text-sm font-medium text-primary-800">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mt-0.5 shrink-0 text-accent-600"
+                aria-hidden="true"
+              >
+                <path d="m5 13 4 4L19 7" />
+              </svg>
+              If you don&apos;t save more than your membership fee in the first
+              12 months, we credit the rest.
             </p>
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Button href="/plans" size="lg">
-                See Membership Plans
+                See membership plans
               </Button>
               <Link
-                href="/cheat-sheet"
+                href="/#how-it-works"
                 className="text-sm font-semibold text-primary-700 underline-offset-4 hover:text-primary-900 hover:underline"
               >
-                Free Utah Home Maintenance Cheat Sheet
+                How Homekeep works
               </Link>
             </div>
 

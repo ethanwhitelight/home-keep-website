@@ -7,8 +7,37 @@ export default function RiskReversalFaq() {
     <section className="bg-primary-50 py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl border border-accent-200 bg-accent-50 p-6 text-center">
-          <h2 className="text-lg font-bold text-primary-950">Our guarantee</h2>
-          <p className="mt-2 text-sm text-primary-700">{guaranteeCopy}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-600">
+            Our guarantee
+          </p>
+          <p className="mt-2 text-xl font-bold text-primary-950">
+            {guaranteeCopy}
+          </p>
+          <ul className="mx-auto mt-5 max-w-md space-y-2 text-left text-sm text-primary-700">
+            {[
+              "Your dashboard tracks your savings on every booked job.",
+              "At 12 months, if your savings are under your fee, we credit you the difference.",
+              "No claims to file — we do the math for you.",
+            ].map((point) => (
+              <li key={point} className="flex gap-2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mt-0.5 shrink-0 text-accent-600"
+                  aria-hidden="true"
+                >
+                  <path d="m5 13 4 4L19 7" />
+                </svg>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <p className="mt-12 text-center text-xs font-semibold uppercase tracking-[0.14em] text-accent-600">

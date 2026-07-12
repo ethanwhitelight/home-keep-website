@@ -45,6 +45,9 @@ export default function PlanCards() {
               <h3 className="text-lg font-bold text-primary-950">
                 {plan.displayName}
               </h3>
+              <p className="mt-1 min-h-[2.5rem] text-sm text-primary-600">
+                {plan.tagline}
+              </p>
               <p className="mt-2">
                 <span
                   className={`text-3xl font-extrabold ${

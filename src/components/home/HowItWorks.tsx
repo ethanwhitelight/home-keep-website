@@ -2,19 +2,19 @@ import SectionHeading from "@/components/layout/SectionHeading";
 
 const steps = [
   {
-    title: "Tell us about your home.",
+    title: "Join",
     description:
-      "A few quick questions about your home and what it needs help with.",
+      "Become a member and pick the plan that fits your home.",
   },
   {
-    title: "Get matched with trusted pros at member pricing.",
+    title: "Request a service",
     description:
-      "We connect you with vetted local pros who already offer member-only rates.",
+      "Tell us what you need and we match you with a pre-vetted local pro.",
   },
   {
-    title: "We help you plan and manage the work.",
+    title: "Save",
     description:
-      "Your dashboard tracks savings, upcoming seasonal tasks, and every job.",
+      "Book at member-only pricing and watch your savings add up in your dashboard.",
   },
 ];
 
@@ -25,7 +25,7 @@ export default function HowItWorks() {
         <SectionHeading
           eyebrow="Simple by design"
           title="How it works"
-          description="Three steps from “what does my home need?” to “handled.”"
+          description="Homekeep is a yearly membership that saves you money on home services by connecting you with pre-vetted local pros at member-only pricing."
         />
         <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-3">
           {steps.map((step, index) => (
