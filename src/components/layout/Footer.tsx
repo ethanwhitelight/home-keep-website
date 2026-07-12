@@ -34,7 +34,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Logo className="text-white [&_span]:text-white" />
+            <Logo className="!text-white" />
             <p className="mt-3 max-w-xs text-sm text-primary-300">
               The membership that saves Utah County homeowners more than the fee
               — and handles the hassle of finding trusted pros.

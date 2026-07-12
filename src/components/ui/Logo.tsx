@@ -1,27 +1,51 @@
 import Link from "next/link";
 
+// Homekeep wordmark: a hand-drawn roofline arcing over "Homekeep." in a rounded
+// display face. Single-color (currentColor) so it inverts cleanly for the light
+// navbar and the dark footer.
 export default function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2 text-primary-900 ${className}`}
+      aria-label="Homekeep — home"
+      className={`inline-flex items-center text-primary-900 ${className}`}
     >
       <svg
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
+        viewBox="0 0 244 78"
+        className="h-9 w-auto"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        role="img"
         aria-hidden="true"
-        className="text-accent-500"
       >
-        <path d="M3 11.5 12 4l9 7.5" />
-        <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9" />
+        {/* roofline gable + ridge stub */}
+        <path
+          d="M9 46 L112 11 L235 48"
+          stroke="currentColor"
+          strokeWidth="5.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M112 14 L115 35"
+          stroke="currentColor"
+          strokeWidth="5.5"
+          strokeLinecap="round"
+        />
+        {/* wordmark */}
+        <text
+          x="15"
+          y="69"
+          fill="currentColor"
+          style={{
+            fontFamily: "var(--font-fredoka), system-ui, sans-serif",
+            fontWeight: 700,
+            fontSize: "44px",
+            letterSpacing: "-1.5px",
+          }}
+        >
+          Homekeep.
+        </text>
       </svg>
-      <span className="text-lg font-bold tracking-tight">Homekeep</span>
     </Link>
   );
 }
