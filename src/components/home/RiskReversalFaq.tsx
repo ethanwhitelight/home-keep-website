@@ -15,9 +15,9 @@ export default function RiskReversalFaq() {
           </p>
           <ul className="mx-auto mt-5 max-w-md space-y-2 text-left text-sm text-primary-700">
             {[
-              "Your dashboard tracks your savings on every booked job.",
-              "At 12 months, if your savings are under your fee, we credit you the difference.",
-              "No claims to file — we do the math for you.",
+              "Your dashboard tracks your member savings across all jobs.",
+              "If, after 12 months, your total savings are less than your membership fee, we credit the difference toward your next year.",
+              "This makes Homekeep designed to pay for itself.",
             ].map((point) => (
               <li key={point} className="flex gap-2">
                 <svg

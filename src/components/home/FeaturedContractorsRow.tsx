@@ -25,6 +25,15 @@ export default function FeaturedContractorsRow() {
             See all vetted contractors →
           </Link>
         </div>
+        <p className="mt-6 text-center text-sm text-primary-600">
+          Run a home service business and want to join the network?{" "}
+          <a
+            href="mailto:partners@homekeepco.com?subject=Homekeep%20partner%20application"
+            className="font-semibold text-primary-900 underline underline-offset-4"
+          >
+            Apply to become a Homekeep partner.
+          </a>
+        </p>
       </div>
     </section>
   );

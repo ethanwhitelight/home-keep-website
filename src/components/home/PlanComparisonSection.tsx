@@ -8,7 +8,7 @@ export default function PlanComparisonSection() {
         <SectionHeading
           eyebrow="Membership"
           title="Find your plan"
-          description="Every tier gets member pricing — higher tiers unlock more services."
+          description="Every plan gets access to vetted local pros at member pricing. Most homeowners start with Gold."
         />
 
         <div className="mt-12">

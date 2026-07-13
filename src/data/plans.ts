@@ -4,7 +4,8 @@ export const PLANS: Plan[] = [
   {
     tier: "silver",
     displayName: "Silver",
-    tagline: "For homeowners who want vetted pros for everyday upkeep.",
+    tagline:
+      "Best for: homeowners who just want better prices on a few everyday services a year.",
     priceCents: 9900,
     billingPeriod: "annual",
     perks: [
@@ -17,7 +18,8 @@ export const PLANS: Plan[] = [
   {
     tier: "gold",
     displayName: "Gold",
-    tagline: "Full-home coverage and the best value for most homeowners.",
+    tagline:
+      "Best for: families who use 2–5 home services a year and want help planning it.",
     priceCents: 19900,
     billingPeriod: "annual",
     mostPopular: true,
@@ -31,7 +33,8 @@ export const PLANS: Plan[] = [
   {
     tier: "platinum",
     displayName: "Platinum",
-    tagline: "For homeowners who want their whole home handled.",
+    tagline:
+      "Best for: busy professionals or landlords who want someone to manage everything.",
     priceCents: 39900,
     billingPeriod: "annual",
     perks: [

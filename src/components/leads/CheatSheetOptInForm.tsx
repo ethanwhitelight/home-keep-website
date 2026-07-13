@@ -64,6 +64,7 @@ export default function CheatSheetOptInForm() {
       <Button type="submit" disabled={pending} className="w-full">
         {pending ? "Sending…" : "Get the free checklist"}
       </Button>
+      <p className="text-center text-xs text-primary-500">Free PDF, no spam.</p>
     </form>
   );
 }

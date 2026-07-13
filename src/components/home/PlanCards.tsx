@@ -45,7 +45,7 @@ export default function PlanCards() {
               <h3 className="text-lg font-bold text-primary-950">
                 {plan.displayName}
               </h3>
-              <p className="mt-1 min-h-[2.5rem] text-sm text-primary-600">
+              <p className="mt-1 min-h-[4rem] text-sm text-primary-600">
                 {plan.tagline}
               </p>
               <p className="mt-2">
@@ -88,7 +88,26 @@ export default function PlanCards() {
         })}
       </div>
 
-      <p className="mt-8 text-center text-sm text-primary-600">
+      <p className="mx-auto mt-8 flex max-w-2xl items-start justify-center gap-2 rounded-xl border border-accent-200 bg-accent-50 px-5 py-3 text-center text-sm font-medium text-primary-800">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="mt-0.5 shrink-0 text-accent-600"
+          aria-hidden="true"
+        >
+          <path d="m5 13 4 4L19 7" />
+        </svg>
+        If you don&apos;t save more than your membership fee in the first 12
+        months, we credit the rest.
+      </p>
+
+      <p className="mt-6 text-center text-sm text-primary-600">
         Want the full breakdown?{" "}
         <Link href="/plans" className="font-semibold text-primary-900 underline">
           Compare every service across tiers

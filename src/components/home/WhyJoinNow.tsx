@@ -25,8 +25,12 @@ export default function WhyJoinNow() {
             problems handled faster.
           </p>
           <p className="mt-4 text-lg font-semibold text-primary-900">
-            Most members recover their entire membership fee with just 1–3
-            services a year.
+            Most Gold members recover their $199 fee with just 2–3 services a
+            year.
+          </p>
+          <p className="mt-3 text-sm text-primary-600">
+            We use Gold in this example because it&apos;s where most homeowners
+            land.
           </p>
         </div>
         <SavingsBarChart />

@@ -31,7 +31,7 @@ export default function SavingsBarChart() {
       </div>
       <div className="mt-6 rounded-lg bg-accent-50 py-3 text-center">
         <span className="text-sm font-semibold text-accent-700">
-          Members save about ${savings.toLocaleString()}/yr on this example
+          You save ${savings.toLocaleString()} in this example
         </span>
       </div>
     </div>

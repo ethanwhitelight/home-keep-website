@@ -12,9 +12,9 @@ const steps = [
       "Tell us what you need and we match you with a pre-vetted local pro.",
   },
   {
-    title: "Save",
+    title: "Pay & save",
     description:
-      "Book at member-only pricing and watch your savings add up in your dashboard.",
+      "Pay the contractor directly at your member rate. Your dashboard tracks how much you've saved.",
   },
 ];
 
@@ -42,6 +42,13 @@ export default function HowItWorks() {
             </div>
           ))}
         </div>
+        <p className="mx-auto mt-12 max-w-2xl rounded-xl border border-primary-100 bg-primary-50 px-5 py-4 text-center text-sm text-primary-800">
+          You pay the contractor directly at your member rate. Homekeep only
+          charges a membership fee —{" "}
+          <span className="font-semibold text-primary-950">
+            we never mark up jobs or take a cut.
+          </span>
+        </p>
       </div>
     </section>
   );

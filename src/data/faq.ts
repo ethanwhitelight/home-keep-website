@@ -12,7 +12,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Can I cancel?",
     answer:
-      "Yes. Memberships are annual and you can cancel anytime from your dashboard — you simply won't be renewed. No cancellation fees, no phone calls to sit through.",
+      "Yes. You can cancel anytime before renewal from your dashboard, and we'll remind you before your year is up. No cancellation fees and no phone calls to sit through.",
   },
   {
     question: "How do you pick pros?",
@@ -23,5 +23,10 @@ export const faqItems: FaqItem[] = [
     question: "Do I pay you or the contractor?",
     answer:
       "You pay the contractor directly at your member rate. Homekeep makes money only from membership fees — we never mark up your jobs or take a cut of the work.",
+  },
+  {
+    question: "Are there hidden fees, or could I get stuck with a bad pro?",
+    answer:
+      "No hidden fees — you pay the annual membership and your member rate on any job, and that's it. And you're never stuck: if a partner slips below our bar, they're out of the network. We keep watching ratings and reviews so the pros you get stay good.",
   },
 ];
