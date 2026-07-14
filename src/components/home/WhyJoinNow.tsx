@@ -1,4 +1,5 @@
 import SavingsBarChart from "@/components/home/SavingsBarChart";
+import Button from "@/components/ui/Button";
 import { sampleYear } from "@/data/stats";
 
 export default function WhyJoinNow() {
@@ -32,6 +33,11 @@ export default function WhyJoinNow() {
             We use Gold in this example because it&apos;s where most homeowners
             land.
           </p>
+          <div className="mt-6">
+            <Button href="/calculator" variant="secondary">
+              Run your numbers with the Homekeep calculator
+            </Button>
+          </div>
         </div>
         <SavingsBarChart />
       </div>

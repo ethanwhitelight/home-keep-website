@@ -2,6 +2,7 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { PLANS } from "@/data/plans";
 import { formatCentsAsDollars } from "@/lib/utils/formatCurrency";
+import type { Tier } from "@/types/tiers";
 
 function CheckIcon() {
   return (
@@ -22,25 +23,38 @@ function CheckIcon() {
   );
 }
 
-export default function PlanCards() {
+export default function PlanCards({
+  highlightTier,
+}: {
+  highlightTier?: Tier;
+}) {
   return (
     <div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {PLANS.map((plan) => {
           const featured = plan.mostPopular;
+          const picked = highlightTier === plan.tier;
           return (
             <div
               key={plan.tier}
-              className={`relative flex flex-col rounded-2xl border bg-white p-6 ${
-                featured
-                  ? "border-2 border-accent-500 shadow-sm md:-mt-2 md:mb-2"
-                  : "border-primary-100"
+              className={`relative flex flex-col rounded-2xl border bg-white p-6 transition-all ${
+                picked
+                  ? "border-2 border-accent-600 shadow-lg ring-4 ring-accent-200 md:-mt-2 md:mb-2"
+                  : featured
+                    ? "border-2 border-accent-500 shadow-sm md:-mt-2 md:mb-2"
+                    : "border-primary-100"
               }`}
             >
-              {featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-primary-950">
-                  Most Popular
+              {picked ? (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent-600 px-3 py-1 text-xs font-semibold text-white">
+                  Recommended for you
                 </span>
+              ) : (
+                featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-primary-950">
+                    Most Popular
+                  </span>
+                )
               )}
               <h3 className="text-lg font-bold text-primary-950">
                 {plan.displayName}

@@ -165,17 +165,20 @@ export default function ScrollVideoHero() {
               If you don&apos;t save more than your membership fee in the first
               12 months, we credit the rest.
             </p>
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <Button href="/plans" size="lg">
                 See membership plans
               </Button>
-              <Link
-                href="/#how-it-works"
-                className="text-sm font-semibold text-primary-700 underline-offset-4 hover:text-primary-900 hover:underline"
-              >
-                How Homekeep works
-              </Link>
+              <Button href="/calculator" variant="secondary" size="lg">
+                See how much you could save
+              </Button>
             </div>
+            <Link
+              href="/#how-it-works"
+              className="mt-4 inline-block text-sm font-semibold text-primary-700 underline-offset-4 hover:text-primary-900 hover:underline"
+            >
+              How Homekeep works
+            </Link>
 
             <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6 border-t border-primary-200 pt-8">
               {heroStats.map((stat, i) => (

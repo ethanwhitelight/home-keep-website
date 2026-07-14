@@ -1,9 +1,14 @@
 import PlanCards from "@/components/home/PlanCards";
 import SectionHeading from "@/components/layout/SectionHeading";
+import type { Tier } from "@/types/tiers";
 
-export default function PlanComparisonSection() {
+export default function PlanComparisonSection({
+  highlightTier,
+}: {
+  highlightTier?: Tier;
+}) {
   return (
-    <section className="py-16 sm:py-20">
+    <section id="find-your-plan" className="scroll-mt-20 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Membership"
@@ -12,7 +17,7 @@ export default function PlanComparisonSection() {
         />
 
         <div className="mt-12">
-          <PlanCards />
+          <PlanCards highlightTier={highlightTier} />
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@
 
 interface NewLeadPayload {
   email: string;
-  source: "cheat-sheet" | "service-request" | "signup-abandoned";
+  source: "cheat-sheet" | "service-request" | "signup-abandoned" | "calculator";
 }
 
 interface NewMemberPayload {
