@@ -25,7 +25,6 @@ export const PLANS: Plan[] = [
     mostPopular: true,
     perks: [
       "Everything in Silver, plus 10 seasonal & mechanical services — HVAC, snow removal, plumbing, chimney & more",
-      "Extra Homekeep-funded savings on top of member pricing each year",
       "A yearly maintenance-planning call to map out the work",
       "Priority responses over non-members in busy season",
     ],
@@ -39,7 +38,6 @@ export const PLANS: Plan[] = [
     billingPeriod: "annual",
     perks: [
       "Everything in Gold, plus 10 big-project services — roof, solar, electrical & foundation",
-      "Our largest Homekeep-funded savings each year",
       "A dedicated concierge who coordinates everything",
       "Fastest, top-priority response — even at peak season",
     ],

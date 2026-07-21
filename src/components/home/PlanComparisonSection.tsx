@@ -7,7 +7,7 @@ export default function PlanComparisonSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Membership"
-          title="One simple plan"
+          title="One simple membership"
           description="Every member gets access to vetted local pros at member pricing. One simple plan for Utah County homeowners."
         />
 

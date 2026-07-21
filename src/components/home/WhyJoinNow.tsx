@@ -27,13 +27,15 @@ export default function WhyJoinNow() {
           <p className="mt-4 text-lg font-semibold text-primary-900">
             Most members recover their $199 fee with just 2–3 services a year.
           </p>
+        </div>
+        <div>
+          <SavingsBarChart />
           <div className="mt-6">
-            <Button href="/calculator" variant="secondary">
+            <Button href="/calculator" variant="secondary" className="w-full">
               Run your numbers with the Homekeep calculator
             </Button>
           </div>
         </div>
-        <SavingsBarChart />
       </div>
     </section>
   );
