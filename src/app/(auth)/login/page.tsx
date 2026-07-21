@@ -30,7 +30,7 @@ export default async function LoginPage({
       <p className="mt-6 text-center text-sm text-primary-600">
         Not a member yet?{" "}
         <Link href="/plans" className="font-semibold text-primary-900 underline">
-          See membership plans
+          See membership
         </Link>
       </p>
     </div>

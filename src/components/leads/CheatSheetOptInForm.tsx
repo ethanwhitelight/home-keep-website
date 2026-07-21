@@ -43,7 +43,7 @@ export default function CheatSheetOptInForm() {
           for less.
         </p>
         <Button href="/plans" className="mt-4">
-          See Membership Plans
+          See Membership
         </Button>
       </div>
     );

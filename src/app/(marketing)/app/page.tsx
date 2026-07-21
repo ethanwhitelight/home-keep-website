@@ -69,7 +69,7 @@ export default function AppPage() {
 
       <div className="mt-10">
         <Button href="/plans" size="lg">
-          See Membership Plans
+          See Membership
         </Button>
       </div>
     </div>

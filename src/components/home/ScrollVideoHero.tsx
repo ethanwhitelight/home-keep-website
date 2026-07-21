@@ -167,7 +167,7 @@ export default function ScrollVideoHero() {
             </p>
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <Button href="/#find-your-plan" size="lg">
-                See membership plans
+                See membership
               </Button>
               <Button href="/calculator" variant="secondary" size="lg">
                 See how much you could save

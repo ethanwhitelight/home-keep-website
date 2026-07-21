@@ -16,7 +16,7 @@ export default function Hero() {
           </p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Button href="/plans" size="lg">
-              See Membership Plans
+              See Membership
             </Button>
             <Link
               href="/cheat-sheet"

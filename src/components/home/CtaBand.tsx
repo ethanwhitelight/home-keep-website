@@ -13,7 +13,7 @@ export default function CtaBand() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/plans" variant="secondary" size="lg">
-            See Membership Plans
+            See Membership
           </Button>
           <Button href="/cheat-sheet" variant="ghost" size="lg">
             Get the free cheat sheet
