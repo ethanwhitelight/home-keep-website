@@ -166,7 +166,7 @@ export default function ScrollVideoHero() {
               12 months, we credit the rest.
             </p>
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <Button href="/plans" size="lg">
+              <Button href="/#find-your-plan" size="lg">
                 See membership plans
               </Button>
               <Button href="/calculator" variant="secondary" size="lg">
