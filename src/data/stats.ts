@@ -16,7 +16,7 @@ export const sampleYear = {
 
 export const withoutVsWith = {
   withoutLabel: "Without Homekeep",
-  withLabel: "With Homekeep Gold",
+  withLabel: "With Homekeep",
   withoutAmount: 2200,
   withAmount: 1750,
 };

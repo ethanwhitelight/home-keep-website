@@ -3,8 +3,7 @@ import SectionHeading from "@/components/layout/SectionHeading";
 const steps = [
   {
     title: "Join",
-    description:
-      "Become a member and pick the plan that fits your home.",
+    description: "Become a member and set up your Homekeep account.",
   },
   {
     title: "Request a service",

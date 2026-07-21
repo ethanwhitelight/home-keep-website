@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
       "I used to dread calling around for a plumber. Now I message Homekeep and someone vetted shows up at member pricing. Easily paid for itself the first month.",
     name: "Sarah M.",
     location: "Provo, UT",
-    tier: "Gold member",
+    tier: "Homekeep member",
     rating: 5,
   },
   {
@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
       "The seasonal reminders alone are worth it. My sprinklers got winterized before the first freeze instead of after — no more surprise repair bills.",
     name: "David T.",
     location: "Orem, UT",
-    tier: "Platinum member",
+    tier: "Homekeep member",
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
       "Every pro they've sent has been on time and fair. It feels like having a general contractor friend on call for the whole house.",
     name: "Emily R.",
     location: "Lehi, UT",
-    tier: "Silver member",
+    tier: "Homekeep member",
     rating: 5,
   },
 ];

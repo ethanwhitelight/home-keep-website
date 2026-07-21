@@ -145,7 +145,7 @@ export default function ScrollVideoHero() {
             </h1>
             <p className="mt-5 max-w-md text-lg text-primary-700">
               Utah County homeowners get member-only pricing with pre-vetted
-              local pros — and more help at every tier.
+              local pros — all in one simple membership.
             </p>
             <p className="mt-5 flex max-w-md items-start gap-2 rounded-xl border border-primary-200 bg-white/70 px-4 py-3 text-sm font-medium text-primary-800">
               <svg

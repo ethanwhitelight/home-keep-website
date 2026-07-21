@@ -29,7 +29,7 @@ export default async function HomePage({
       <HowItWorks />
       <WhyJoinNow />
       <Testimonials />
-      <PlanComparisonSection highlightTier={highlightTier} />
+      <PlanComparisonSection />
       <RiskReversalFaq />
       <CtaBand />
     </>

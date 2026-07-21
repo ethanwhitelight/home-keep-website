@@ -20,18 +20,12 @@ export default function WhyJoinNow() {
             services.
           </p>
           <p className="mt-3 text-lg text-primary-700">
-            On <span className="font-semibold text-primary-900">Gold</span> —
-            our most popular plan at $199/yr — members save{" "}
+            With Homekeep at $199/yr, members save{" "}
             {sampleYear.memberSavingsPercent}–30% across those jobs and get
             problems handled faster.
           </p>
           <p className="mt-4 text-lg font-semibold text-primary-900">
-            Most Gold members recover their $199 fee with just 2–3 services a
-            year.
-          </p>
-          <p className="mt-3 text-sm text-primary-600">
-            We use Gold in this example because it&apos;s where most homeowners
-            land.
+            Most members recover their $199 fee with just 2–3 services a year.
           </p>
           <div className="mt-6">
             <Button href="/calculator" variant="secondary">

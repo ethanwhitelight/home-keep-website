@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
-import PlanComparisonTable from "@/components/plans/PlanComparisonTable";
+import PlanCards from "@/components/home/PlanCards";
 
 export const metadata: Metadata = {
-  title: "Membership Plans",
+  title: "Membership",
   description:
-    "Compare Homekeep's Silver, Gold, and Platinum membership tiers and find the right level of vetted, member-priced home services.",
+    "One simple Homekeep membership at $199/yr — access to vetted, member-priced local pros for Utah County homeowners.",
 };
 
 export default function PlansPage() {
@@ -13,11 +13,11 @@ export default function PlansPage() {
     <>
       <PageHeader
         eyebrow="Membership"
-        title="Membership plans"
-        description="Every tier gets the same member pricing — higher tiers unlock more of the service catalog."
+        title="One simple plan"
+        description="Every member gets access to vetted local pros at member pricing — all in one membership."
       />
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <PlanComparisonTable />
+        <PlanCards />
       </div>
     </>
   );
