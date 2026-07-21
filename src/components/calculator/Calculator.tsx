@@ -11,28 +11,12 @@ import {
   isServiceableZip,
   type Selections,
 } from "@/data/calculator";
-import { TIER_LABELS, TIER_ORDER, type Tier } from "@/types/tiers";
 import { trackCustom, trackStandard, getUtmParams } from "@/lib/analytics/track";
 
 const money = (n: number) => `$${Math.round(n).toLocaleString()}`;
 
-const TIER_BULLETS: Record<Tier, (savings: number) => string[]> = {
-  silver: () => [
-    "You use a few key services a year.",
-    "Silver gets you better pricing without paying for perks you don't need.",
-    "You still get access to our vetted 4.7★+ local pros.",
-  ],
-  gold: (savings) => [
-    "You use multiple services each year.",
-    `Gold members like you typically save about ${money(savings)}/yr after the $199 fee.`,
-    "You also get a yearly maintenance-planning call and priority responses.",
-  ],
-  platinum: () => [
-    "You use a lot of different home services.",
-    "Platinum unlocks our full network and support so we can help manage it for you.",
-    "Best for busy families and landlords who want set-it-and-forget-it home management.",
-  ],
-};
+// One membership at $199/yr — sourced from the plan data.
+const MEMBERSHIP_FEE = TIER_FEES.gold;
 
 export default function Calculator() {
   const [step, setStep] = useState(1);
@@ -359,9 +343,9 @@ function TeaserForm({
           Unlock your full breakdown by service, plus:
         </p>
         <ul className="space-y-1 text-sm text-primary-700">
-          <li>• See which Homekeep plan fits you best</li>
+          <li>• See exactly where your savings come from, service by service</li>
           <li>• Get a copy of your savings report by email</li>
-          <li>• Lock in our founding rate if you decide to join</li>
+          <li>• Start your Homekeep Membership if it makes sense for you</li>
         </ul>
         <Input
           id="calc-name"
@@ -459,7 +443,7 @@ function Results({
   result: ReturnType<typeof computeResult>;
   onReset: () => void;
 }) {
-  const tier = result.recommendedTier;
+  const net = result.estimatedSavings - MEMBERSHIP_FEE;
   const spendLow = Math.round((result.estimatedSpend * 0.85) / 10) * 10;
   const spendHigh = Math.round((result.estimatedSpend * 1.15) / 10) * 10;
 
@@ -483,10 +467,16 @@ function Results({
 
         <div className="mt-6 rounded-xl bg-primary-50 p-5 text-left">
           <p className="font-bold text-primary-950">
-            We recommend the {TIER_LABELS[tier]} plan for you.
+            {net > 0
+              ? `That's ${money(net)} more than the $199 membership costs — it pays for itself.`
+              : "That's close to the $199 membership — and our guarantee has your back either way."}
           </p>
           <ul className="mt-3 space-y-2">
-            {TIER_BULLETS[tier](result.estimatedSavings).map((b) => (
+            {[
+              "Every job booked through a pre-vetted local pro at member pricing.",
+              "Your dashboard tracks your savings all year.",
+              "Backed by our guarantee — if you don't save more than $199, we credit the rest.",
+            ].map((b) => (
               <li key={b} className="flex gap-2 text-sm text-primary-700">
                 <span className="text-accent-600">✓</span>
                 {b}
@@ -496,64 +486,29 @@ function Results({
         </div>
       </div>
 
-      {/* ROI by tier */}
+      {/* Your return */}
       <div className="rounded-2xl border border-primary-100 bg-white p-6 sm:p-8">
-        <h3 className="text-lg font-bold text-primary-950">Your ROI by plan</h3>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full min-w-[420px] text-sm">
-            <thead>
-              <tr className="text-left text-xs uppercase tracking-wide text-primary-500">
-                <th className="py-2" />
-                {TIER_ORDER.map((t) => (
-                  <th
-                    key={t}
-                    className={`py-2 text-center ${
-                      t === tier ? "text-accent-700" : "text-primary-700"
-                    }`}
-                  >
-                    {TIER_LABELS[t]}
-                    {t === tier && (
-                      <span className="block text-[10px] font-semibold normal-case text-accent-600">
-                        Recommended for you
-                      </span>
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-primary-100">
-                <td className="py-2 text-primary-700">Membership fee</td>
-                {TIER_ORDER.map((t) => (
-                  <td key={t} className="py-2 text-center text-primary-800">
-                    {money(TIER_FEES[t])}
-                  </td>
-                ))}
-              </tr>
-              <tr className="border-t border-primary-100">
-                <td className="py-2 text-primary-700">Projected savings</td>
-                {TIER_ORDER.map((t) => (
-                  <td key={t} className="py-2 text-center text-primary-800">
-                    {money(result.estimatedSavings)}
-                  </td>
-                ))}
-              </tr>
-              <tr className="border-t border-primary-100 font-semibold">
-                <td className="py-2 text-primary-900">Net after fee</td>
-                {TIER_ORDER.map((t) => (
-                  <td
-                    key={t}
-                    className={`py-2 text-center ${
-                      t === tier ? "text-accent-700" : "text-primary-900"
-                    }`}
-                  >
-                    {money(result.estimatedSavings - TIER_FEES[t])}
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h3 className="text-lg font-bold text-primary-950">Your return</h3>
+        <dl className="mt-4 space-y-2 text-sm">
+          <div className="flex justify-between">
+            <dt className="text-primary-700">Homekeep Membership</dt>
+            <dd className="font-medium text-primary-900">
+              {money(MEMBERSHIP_FEE)}/yr
+            </dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-primary-700">Your projected savings</dt>
+            <dd className="font-medium text-primary-900">
+              {money(result.estimatedSavings)}/yr
+            </dd>
+          </div>
+          <div className="flex justify-between border-t border-primary-100 pt-2 text-base font-semibold">
+            <dt className="text-primary-900">Net after the fee</dt>
+            <dd className={net >= 0 ? "text-accent-700" : "text-primary-900"}>
+              {money(net)}/yr
+            </dd>
+          </div>
+        </dl>
       </div>
 
       {/* full breakdown */}
@@ -572,15 +527,14 @@ function Results({
 
       {/* CTAs */}
       <div className="flex flex-col items-center gap-3">
-        <Button href={`/?plan=${tier}`} size="lg" className="w-full sm:w-auto">
-          Join {TIER_LABELS[tier]} as a founding member — $249/yr locked + $50
-          credit
+        <Button href="/signup?tier=gold" size="lg" className="w-full sm:w-auto">
+          Join Homekeep — $199/yr
         </Button>
         <a
-          href="/?plan=gold#find-your-plan"
+          href="/#find-your-plan"
           className="text-sm font-semibold text-primary-700 underline-offset-4 hover:text-primary-900 hover:underline"
         >
-          Compare all plans
+          See the membership
         </a>
         <button
           type="button"
